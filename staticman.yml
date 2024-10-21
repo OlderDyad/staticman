@@ -1,0 +1,31 @@
+# Configuration for Staticman
+comments:
+  path: "data/comments/{options.postId}" # Directory where comments are stored
+  format: "yaml" # Format for storing the comments (can also be 'json')
+  moderation: true # Enable moderation if you want to manually approve comments
+  frontMatter: true # Store comments with front matter (for static site generators)
+  fields:
+    name:
+      type: "string"
+      required: true
+      message: "Please enter your name."
+    email:
+      type: "string"
+      required: true
+      message: "Please enter your email address."
+      validation: "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$"
+    comment:
+      type: "string"
+      required: true
+      message: "Please enter a comment."
+  branch: "main" # The branch where comments will be committed
+  commitMessage: "Add comment by {fields.name}" # The commit message to use
+  name: "Staticman Comments" # The name for the commit author
+  email: "noreply@example.com" # Email for the commit author
+  requiredFields:
+    - name
+    - email
+    - comment
+  reCaptcha:
+    enabled: false # Set to true if you want to enable reCaptcha
+
